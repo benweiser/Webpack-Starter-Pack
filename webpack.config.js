@@ -22,8 +22,10 @@ const extractPlugin = new ExtractTextPlugin({
 module.exports = {
     /**
      * Tell Webpack we want sourcemaps in our developer tools
+     * Note this ternary is a hack, because there prod will not build with sourcemaps
+     * https://github.com/webpack-contrib/sass-loader/issues/351
      */
-    devtool: "source-map",
+    devtool: isProduction ? "": "source-map",
     /**
      * This is the entry point for our application src/App.ts everything including an import to our scss goes through here
      */
@@ -51,12 +53,12 @@ module.exports = {
         compress: false,
         port: 8080,
         // Controls terminal output for build process
-        stats: "minimal"
+        stats: "normal"
     },
     /**
      * This will warn us if any of our compiled assets are over 250kb (default value)
      */
-    //performance: { hints: "warning" },
+    performance: { hints: isProduction ? "warning" : false },
     /**
      * Resolver helps webpack find module code that needs to be included for every bundle
      */
@@ -149,7 +151,11 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'commons',
             filename: 'commons.js',
-            //minChunks: 2,
+            /**
+             * Automatically detect libraries in node_modules for bundling in common.js
+             * @param module
+             * @returns {boolean}
+             */
             minChunks: (module)=> {
                 return module.context && module.context.indexOf('node_modules') !== -1;
             }

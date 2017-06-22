@@ -3,14 +3,13 @@
  * Want an external stylesheet? We've got to import it into our entry point
  */
 import './app.scss';
-
-
-
-//import {MomentLongDateFormat} from 'moment';
 import * as $ from 'jquery';
 import {developers} from "./lib/Developers";
 
-//console.log($);
+/**
+ * I added jQuery just for funzies to show you how you'd do it, but I really don't want to use it
+ */
+console.log($);
 
 class IndexHTML {
     data: Array<string>;
@@ -23,8 +22,7 @@ class IndexHTML {
 
     run() {
         for (let developer of this.data) {
-            console.log(developer);
-            this.element.innerHTML += `<li="${developer}">${developer}</li>`;
+            this.element.innerHTML += `<li id='${developer.toLowerCase()}'>${developer}</li>`;
         }
     }
 }

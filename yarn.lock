@@ -2,7 +2,13 @@
 # yarn lockfile v1
 
 
-"@types/jquery@^3.2.3":
+"@types/foundation-sites@^6.1.29":
+  version "6.1.29"
+  resolved "https://registry.yarnpkg.com/@types/foundation-sites/-/foundation-sites-6.1.29.tgz#cc970043e5936347319728b41a7b14f09c82b98f"
+  dependencies:
+    "@types/jquery" "*"
+
+"@types/jquery@*", "@types/jquery@^3.2.3":
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.2.3.tgz#c0fa172a1d6955ebf645d345fbf6dbf492d507ef"
 
@@ -1444,6 +1450,13 @@ forwarded@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.0.tgz#19ef9874c4ae1c297bcf078fde63a09b66a84363"
 
+foundation-sites@^6.3.1:
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/foundation-sites/-/foundation-sites-6.3.1.tgz#23853372deb9480c13b426499eaf0c8f90cdbe1d"
+  dependencies:
+    jquery ">=2.2.0"
+    what-input "^4.0.3"
+
 fresh@0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.5.0.tgz#f474ca5e6a9246d6fd8e0953cfa9b9c805afa78e"
@@ -1984,7 +1997,7 @@ isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
 
-jquery@^3.2.1:
+jquery@>=2.2.0, jquery@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
 
@@ -4449,6 +4462,10 @@ websocket-driver@>=0.5.1:
 websocket-extensions@>=0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.1.tgz#76899499c184b6ef754377c2dbb0cd6cb55d29e7"
+
+what-input@^4.0.3:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/what-input/-/what-input-4.2.0.tgz#a6439cc1c983581eae751fac3acb139bf3e9acb7"
 
 whet.extend@~0.9.9:
   version "0.9.9"

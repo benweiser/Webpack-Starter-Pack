@@ -1,1 +1,17 @@
+// Example of how to import scss
 @import 'colors';
+@import 'foundation';
+
+body {
+  background: $background;
+}
+
+h1 {
+  color: $secondary;
+}
+
+#ben {
+  color: $primary;
+  font-weight: 900;
+}
+

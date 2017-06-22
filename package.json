@@ -17,6 +17,7 @@
   "author": "Ben Weiser",
   "license": "ISC",
   "devDependencies": {
+    "@types/foundation-sites": "^6.1.29",
     "@types/jquery": "^3.2.3",
     "@types/node": "^8.0.0",
     "autoprefixer": "^7.1.1",
@@ -46,6 +47,7 @@
     "webpack-notifier": "^1.5.0"
   },
   "dependencies": {
+    "foundation-sites": "^6.3.1",
     "jquery": "^3.2.1",
     "moment": "^2.18.1"
   }
