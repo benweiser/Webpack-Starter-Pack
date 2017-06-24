@@ -8,6 +8,8 @@ const chalk = require('chalk');
 
 // In case we want to differentiate between PROD and DEV environments at least we have a const ready
 const isProduction = process.env.NODE_ENV === 'production';
+const isDev = process.env.NODE_ENV === 'dev';
+const isTest = process.env.NODE_ENV === 'test';
 
 /**
  * Extract text plugin is required to convert scss import in App.ts to external stylesheet
