@@ -8,8 +8,6 @@ const chalk = require('chalk');
 
 // In case we want to differentiate between PROD and DEV environments at least we have a const ready
 const isProduction = process.env.NODE_ENV === 'production';
-const isDev = process.env.NODE_ENV === 'dev';
-const isTest = process.env.NODE_ENV === 'test';
 
 /**
  * Extract text plugin is required to convert scss import in App.ts to external stylesheet
@@ -17,7 +15,7 @@ const isTest = process.env.NODE_ENV === 'test';
  */
 const extractPlugin = new ExtractTextPlugin({
     filename: '[name].css',
-    disable: false,
+    disable: !isProduction,
     allChunks: true
 });
 
@@ -27,7 +25,7 @@ module.exports = {
      * Note this ternary is a hack, because there prod will not build with sourcemaps
      * https://github.com/webpack-contrib/sass-loader/issues/351
      */
-    devtool: isProduction ? "": "source-map",
+    devtool: "source-map",
     /**
      * This is the entry point for our application src/App.ts everything including an import to our scss goes through here
      */
@@ -55,12 +53,14 @@ module.exports = {
         compress: false,
         port: 8080,
         // Controls terminal output for build process
-        stats: "normal"
+        stats: {
+            chunks: false
+        }
     },
     /**
      * This will warn us if any of our compiled assets are over 250kb (default value)
      */
-    performance: { hints: isProduction ? "warning" : false },
+    performance: {hints: isProduction ? "warning" : false},
     /**
      * Resolver helps webpack find module code that needs to be included for every bundle
      */
@@ -110,7 +110,7 @@ module.exports = {
                         /**
                          * Bundles our CSS with sourcemaps and minify
                          */
-                        { loader: "css-loader", options: {importLoaders: 1, sourceMap: true, minimize: true}},
+                        {loader: "css-loader", options: {importLoaders: 1, sourceMap: true, minimize: true}},
                         /**
                          * Applies autoprefixer to our CSS as well as any other PostCSS plugins
                          */
@@ -125,18 +125,19 @@ module.exports = {
                                 //require('postcss-cssnext')(),
 
                                 // Automatically add vendor prefixes to compiled SCSS
-                                require('autoprefixer')({ browsers: "last 2 versions" }),
+                                require('autoprefixer')({browsers: "last 2 versions"}),
                             ]
                         }
                         },
                         /**
                          * Compiles our SCSS code with sourcmaps
                          */
-                        { loader: "sass-loader", options: {sourceMap: true}},
+                        {loader: "sass-loader", options: {sourceMap: true}},
                         /**
                          * Automatically correct low-hanging stylelint errors on build
                          */
-                        { loader: "stylefmt-loader", options: { config: ".stylelintrc"}}
+
+                        {loader: "stylefmt-loader", options: {config: ".stylelintrc"}},
                     ],
                 }),
             },
@@ -146,10 +147,6 @@ module.exports = {
      * Include webpack plugins
      */
     plugins: [
-        /**
-         * Ensures that common libraries are not to duplicated in our bundle. Packages up all common libraries so
-         * they only occur once (i.e. lodash, jQuery)
-         */
         new webpack.optimize.CommonsChunkPlugin({
             name: 'commons',
             filename: 'commons.js',
@@ -158,7 +155,7 @@ module.exports = {
              * @param module
              * @returns {boolean}
              */
-            minChunks: (module)=> {
+            minChunks: (module) => {
                 return module.context && module.context.indexOf('node_modules') !== -1;
             }
         }),
