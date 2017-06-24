@@ -4,10 +4,10 @@
   "description": "This is a webpack 2 starter project that uses typescript and sass",
   "main": "webpack.config.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev webpack-dev-server",
+    "dev": "webpack-dev-server",
     "prod": "npm run clean && cross-env NODE_ENV=production webpack -p",
     "clean": "rimraf ./dist/*",
-    "test": "cross-env NODE_ENV=test mocha"
+    "test": "mocha"
   },
   "keywords": [
     "webpack2",
