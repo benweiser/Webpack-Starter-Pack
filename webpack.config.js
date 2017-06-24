@@ -25,7 +25,7 @@ module.exports = {
      * Note this ternary is a hack, because there prod will not build with sourcemaps
      * https://github.com/webpack-contrib/sass-loader/issues/351
      */
-    devtool: isProduction ? "" : "source-map",
+    devtool: "source-map",
     /**
      * This is the entry point for our application src/App.ts everything including an import to our scss goes through here
      */
