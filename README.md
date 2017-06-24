@@ -1,17 +1,17 @@
-##Webpack Starter Kit
+## Webpack Starter Kit
 
 This is a highly opinionated Webpack starter for modern front-end web development that utlizes sass, typescript, stylelint, tslint
 and postcss. This project was created as an attempt to replace my current build system using gulp with a quicker
 and easier to use build process.
 
-##Getting Started
-###Step 1. Clone the repository in your projects folder
+## Getting Started
+### Step 1. Clone the repository in your projects folder
 
 ```bash
 git clone https://github.com/benweiser/Webpack-Starter-Pack
 ```
 
-###Step 2. (Optional). Install Yarn
+### Step 2. (Optional). Install Yarn
 
 Alternatively you can use plain old NPM just skip this step and npm install, npm run dev/prod instead
 
@@ -27,7 +27,7 @@ Get Yarn
 ```bash
 brew install yarn
 ```
-**Windows Installation (LOL)**
+**Windows Installation**
 
 Visit https://yarnpkg.com/lang/en/docs/install/#windows-tab to get the installer
 
@@ -36,7 +36,7 @@ Visit https://yarnpkg.com/lang/en/docs/install/#windows-tab to get the installer
 ```bash
 yarn install
 ```
-###Step 3. Build Assets
+### Step 3. Build Assets
 
 **Development Mode**
 
@@ -52,6 +52,15 @@ Bundles up all your assets nice and minified ready to be shipped into a producti
 
 ```
 yarn run prod
+```
+
+
+**Test Mode**
+
+Used for running tests
+
+```
+yarn run test
 ```
 
 
