@@ -94,7 +94,19 @@ module.exports = {
             {
                 test: /\.ts$/,
                 exclude: [/node_modules/],
-                use: 'ts-loader'
+                use: [
+                    {loader: "babel-loader",
+                        options: {
+                        sourceMaps: true,
+                        "presets": [
+                            ["es2015", {
+                                "modules": false
+                            }],
+                            "es2016"
+                        ]
+                    }},
+                    {loader: "ts-loader"},
+                ]
             },
             /**
              * Style loaders extractPlugin takes bundled css and creates an external stylesheet
