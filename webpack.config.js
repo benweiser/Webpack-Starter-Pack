@@ -68,7 +68,7 @@ module.exports = {
         /**
          * Specify which extensions we want to look at for module bundling
          */
-        extensions: ['.ts', '.tsx', '.js', '.scss']
+        extensions: ['.ts', '.js', '.scss']
     },
     module: {
         /**
@@ -102,9 +102,11 @@ module.exports = {
                             ["es2015", {
                                 "modules": false
                             }],
-                            "es2016"
+                            "es2016",
+                            "env"
                         ]
-                    }},
+                    }
+                    },
                     {loader: "ts-loader"},
                 ]
             },
@@ -159,18 +161,18 @@ module.exports = {
      * Include webpack plugins
      */
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'commons',
-            filename: 'commons.js',
-            /**
-             * Automatically detect libraries in node_modules for bundling in common.js
-             * @param module
-             * @returns {boolean}
-             */
-            minChunks: (module) => {
-                return module.context && module.context.indexOf('node_modules') !== -1;
-            }
-        }),
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     name: 'commons',
+        //     filename: 'commons.js',
+        //     /**
+        //      * Automatically detect libraries in node_modules for bundling in common.js
+        //      * @param module
+        //      * @returns {boolean}
+        //      */
+        //     minChunks: (module) => {
+        //         return module.context && module.context.indexOf('node_modules') !== -1;
+        //     }
+        // }),
         /**
          * Prevents generation of imported modules matching require expressions
          */

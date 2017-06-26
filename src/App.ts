@@ -26,5 +26,14 @@ class IndexHTML {
         }
     }
 }
+export default IndexHTML;
 
 new IndexHTML().run();
+
+
+export class Testerwoo {
+    constructor() {
+        console.log("hello from the other side");
+
+    }
+}
