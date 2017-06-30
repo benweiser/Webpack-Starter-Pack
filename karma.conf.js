@@ -1,10 +1,7 @@
 // Karma configuration
 // Generated on Fri Jun 23 2017 22:42:23 GMT-0700 (PDT)
 const webpackConfig = require('./webpack.config');
-//require('babel-register');
-//webpackConfig.plugins = [];
-
-delete webpackConfig.entry;
+//delete webpackConfig.entry;
 
 module.exports = function (config) {
     config.set({
@@ -20,7 +17,8 @@ module.exports = function (config) {
 
         // list of files / patterns to load in the browser
         files: [
-            'src/**/*.spec.ts'
+            'src/**/*.spec.ts',
+            'src/**/*.html'
             //'./node_modules/babel-polyfill/dist/polyfill.js',
             //'./node_modules/phantomjs-polyfill/bind-polyfill.js',
         ],
@@ -33,13 +31,14 @@ module.exports = function (config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            '**/*.ts': ['sourcemap', 'webpack'],
+            'src/**/*.ts': ['sourcemap', 'webpack'],
+            'src/**/*.html': ['html2js']
         },
 
         webpack: {
             module: webpackConfig.module,
             resolve: webpackConfig.resolve,
-            plugins: webpackConfig.plugins,
+            plugins: webpackConfig.plugins
         },
 
         webpackMiddleware: {
@@ -74,7 +73,7 @@ module.exports = function (config) {
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['PhantomJS', 'Chrome'],
+        browsers: ['PhantomJS'],
 
 
         // Continuous Integration mode

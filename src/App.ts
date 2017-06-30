@@ -11,29 +11,37 @@ import {developers} from "./lib/Developers";
  */
 console.log($);
 
-class IndexHTML {
+export class IndexHTML {
     data: Array<string>;
-    element: HTMLElement;
+    element: Element;
 
     constructor() {
         this.data = developers;
-        this.element = <HTMLElement>document.getElementsByTagName("ul")[0];
+        this.element = document.getElementsByTagName("ul")[0];
     }
 
     run() {
-        for (let developer of this.data) {
+        for (let i = 0; i < this.data.length; i++) {
+            let developer = this.data[i];
             this.element.innerHTML += `<li id='${developer.toLowerCase()}'>${developer}</li>`;
         }
     }
 }
-export default IndexHTML;
 
 new IndexHTML().run();
 
 
-export class Testerwoo {
-    constructor() {
-        console.log("hello from the other side");
-
+export class TestClass {
+    combineNames(first: string, last: string): string {
+        return `${first} ${last}`;
     }
 }
+
+console.log(TestClass);
+
+export function hello(){
+    return 'Hello World';
+}
+
+
+

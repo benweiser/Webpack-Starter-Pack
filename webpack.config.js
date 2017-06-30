@@ -93,7 +93,7 @@ module.exports = {
              */
             {
                 test: /\.ts$/,
-                exclude: [/node_modules/],
+                exclude: ['/node_modules/', '*.spec.ts'],
                 use: [
                     {loader: "babel-loader",
                         options: {
@@ -102,8 +102,7 @@ module.exports = {
                             ["es2015", {
                                 "modules": false
                             }],
-                            "es2016",
-                            "env"
+                            "es2016"
                         ]
                     }
                     },

@@ -100,3 +100,8 @@ wp-content/plugins/hello.php
 /sitemap.xml.gz
 .idea/
 idea_temp_LocalResourceRootsList
+build/
+coverage/
+dist/
+node_modules/
+webpack.dev.js
