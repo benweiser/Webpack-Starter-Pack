@@ -1,5 +1,7 @@
 ## Webpack Starter Kit
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/benweiser/Webpack-Starter-Pack.svg)](https://greenkeeper.io/)
+
 This is a highly opinionated Webpack starter for modern front-end web development that utlizes sass, typescript, stylelint, tslint
 and postcss. This project was created as an attempt to replace my current build system using gulp with a quicker
 and easier to use build process.
